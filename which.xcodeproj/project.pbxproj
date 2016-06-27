@@ -21,6 +21,7 @@
 		E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BF21CFBF8BA003267B0 /* ExtensionDelegate.m */; };
 		E4671BF61CFBF8BA003267B0 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BF51CFBF8BA003267B0 /* GlanceController.m */; };
 		E4671BF81CFBF8BA003267B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4671BF71CFBF8BA003267B0 /* Assets.xcassets */; };
+		E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3D7ED1D1EFB940081945F /* DataRetriever.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		E4671BF51CFBF8BA003267B0 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		E4671BF71CFBF8BA003267B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4671BF91CFBF8BA003267B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4B3D7ED1D1EFB940081945F /* DataRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataRetriever.m; sourceTree = "<group>"; };
+		E4B3D7EF1D1EFCC60081945F /* DataRetriever.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataRetriever.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				E4671BF51CFBF8BA003267B0 /* GlanceController.m */,
 				E4671BF71CFBF8BA003267B0 /* Assets.xcassets */,
 				E4671BF91CFBF8BA003267B0 /* Info.plist */,
+				E4B3D7EF1D1EFCC60081945F /* DataRetriever.h */,
+				E4B3D7ED1D1EFB940081945F /* DataRetriever.m */,
 			);
 			path = "which WatchKit Extension";
 			sourceTree = "<group>";
@@ -245,12 +250,14 @@
 				TargetAttributes = {
 					E4671BC21CFBF8BA003267B0 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = T9V62Y8U4T;
 					};
 					E4671BD91CFBF8BA003267B0 = {
 						CreatedOnToolsVersion = 7.3;
 					};
 					E4671BE81CFBF8BA003267B0 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = T9V62Y8U4T;
 					};
 				};
 			};
@@ -319,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */,
 				E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */,
 				E4671BF01CFBF8BA003267B0 /* InterfaceController.m in Sources */,
 				E4671BF61CFBF8BA003267B0 /* GlanceController.m in Sources */,
@@ -453,6 +461,7 @@
 		E4671BFD1CFBF8BA003267B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "which WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eramosb.which.watchkitapp.watchkitextension;
@@ -467,6 +476,7 @@
 		E4671BFE1CFBF8BA003267B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "which WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eramosb.which.watchkitapp.watchkitextension;
@@ -512,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = which/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eramosb.which;
@@ -523,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = which/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eramosb.which;
@@ -549,6 +561,7 @@
 				E4671BFE1CFBF8BA003267B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4671C001CFBF8BA003267B0 /* Build configuration list for PBXNativeTarget "which WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +570,7 @@
 				E4671C021CFBF8BA003267B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4671C041CFBF8BA003267B0 /* Build configuration list for PBXNativeTarget "which" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +579,7 @@
 				E4671C061CFBF8BA003267B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

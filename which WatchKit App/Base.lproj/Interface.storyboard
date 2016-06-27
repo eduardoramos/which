@@ -1,26 +1,93 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3734"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider=""/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="left" id="U2p-Um-5Rc">
+                            <items>
+                                <dateLabel alignment="left" id="6DQ-o7-OsW">
+                                    <dateFormatterStyle key="dateStyle" short="YES"/>
+                                    <dateFormatterStyle key="timeStyle" short="YES"/>
+                                </dateLabel>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="hQf-oZ-ioN">
+                            <items>
+                                <group width="1" alignment="left" id="2rr-Vb-a4C" userLabel="Card Group">
+                                    <items>
+                                        <label width="1" alignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="QVU-nx-Lpx" userLabel="Card Label">
+                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="a1h-8H-cve">
+                            <items>
+                                <label width="1" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="W7R-i9-FEp" userLabel="Payperiod Label">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="BgS-wW-70L" userLabel="Date Label"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="cardGroup" destination="2rr-Vb-a4C" id="lwL-Vc-eok"/>
+                        <outlet property="cardLabel" destination="QVU-nx-Lpx" id="U7X-5u-A3L"/>
+                        <outlet property="dateLabel" destination="BgS-wW-70L" id="K7A-23-vjh"/>
+                        <outlet property="payperiodLabel" destination="W7R-i9-FEp" id="Kpd-A8-Sy1"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModuleProvider="">
+                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController">
                     <items>
-                        <group alignment="left" id="gv7-I2-MZq"/>
-                        <group alignment="left" id="eew-Gs-W6Y"/>
+                        <group alignment="left" id="gv7-I2-MZq">
+                            <items>
+                                <dateLabel alignment="left" id="WV5-am-Umn">
+                                    <dateFormatterStyle key="dateStyle" short="YES"/>
+                                    <dateFormatterStyle key="timeStyle" short="YES"/>
+                                </dateLabel>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="eew-Gs-W6Y">
+                            <items>
+                                <group width="1" alignment="left" id="gcj-l1-Efc">
+                                    <items>
+                                        <label width="1" alignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="zI8-oG-VNj">
+                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="WIS-p3-oML">
+                                    <items>
+                                        <label width="1" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="VbJ-fB-JH4">
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                        <label alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="WSV-g3-5uj"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="cardGroup" destination="gcj-l1-Efc" id="qEq-7d-n2T"/>
+                        <outlet property="cardLabel" destination="zI8-oG-VNj" id="KCG-bU-znL"/>
+                        <outlet property="dateLabel" destination="WSV-g3-5uj" id="50Z-IT-zgA"/>
+                        <outlet property="payperiodLabel" destination="VbJ-fB-JH4" id="26A-Qu-ZJA"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="164" y="514"/>
