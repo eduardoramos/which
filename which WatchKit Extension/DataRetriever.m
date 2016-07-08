@@ -47,14 +47,14 @@ static DataRetriever* _sharedDataRetriever = nil;
     
     if ((day>10) && (day<=26))
     {
-        myString = @"Gold (11-26th)";
+        myString = @"Gold\n(11-26th)";
         [self setBackgroundColor:[UIColor yellowColor]];
         [self setTextColor:[UIColor blackColor]];
         
     }
     else
     {
-        myString = @"Blue (27-10th)";
+        myString = @"Blue\n(27-10th)";
         [self setBackgroundColor:[UIColor blueColor]];
         [self setTextColor:[UIColor whiteColor]];
         
@@ -100,6 +100,8 @@ static DataRetriever* _sharedDataRetriever = nil;
     // Fetch all events that match the predicate
     NSArray *events = [self.store eventsMatchingPredicate:predicate];
     NSLog(@"Retrieved %d events from: %@ to %@",events.count,fourteenDaysAgo, today);
+    [self setDateText:@"Date..."];
+    [self setPayperiodText:@"Pay Period..."];
     for (EKEvent*event in events) {
         NSLog(@"Event %@",event.title);
         if ([event.title containsString:@"PP#"]) {
