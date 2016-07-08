@@ -12,29 +12,35 @@
                     <items>
                         <group width="1" alignment="left" id="U2p-Um-5Rc">
                             <items>
-                                <dateLabel alignment="left" id="6DQ-o7-OsW">
+                                <dateLabel width="136" height="43.5" alignment="left" id="6DQ-o7-OsW">
+                                    <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <dateFormatterStyle key="dateStyle" short="YES"/>
                                     <dateFormatterStyle key="timeStyle" short="YES"/>
                                 </dateLabel>
                             </items>
                         </group>
-                        <group width="1" alignment="left" id="hQf-oZ-ioN">
+                        <group width="1" height="59" alignment="left" id="hQf-oZ-ioN">
                             <items>
                                 <group width="1" alignment="left" id="2rr-Vb-a4C" userLabel="Card Group">
                                     <items>
-                                        <label width="1" alignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="QVU-nx-Lpx" userLabel="Card Label">
-                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                        <label width="1" alignment="center" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="QVU-nx-Lpx" userLabel="Card Label">
+                                            <string key="text">Label 
+12345678</string>
+                                            <color key="textColor" red="1" green="0.1960784314" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                                         </label>
                                     </items>
                                 </group>
                             </items>
                         </group>
-                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="a1h-8H-cve">
+                        <group width="1" height="66" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" layout="vertical" id="a1h-8H-cve">
                             <items>
-                                <label width="1" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="W7R-i9-FEp" userLabel="Payperiod Label">
+                                <label width="1" height="30" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="W7R-i9-FEp" userLabel="Payperiod Label">
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
-                                <label alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="BgS-wW-70L" userLabel="Date Label"/>
+                                <label width="1" height="33" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="BgS-wW-70L" userLabel="Date Label">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </label>
                             </items>
                         </group>
                     </items>
@@ -46,7 +52,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="164" y="217"/>
+            <point key="canvasLocation" x="163" y="199"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -55,7 +61,7 @@
                     <items>
                         <group alignment="left" id="gv7-I2-MZq">
                             <items>
-                                <dateLabel alignment="left" id="WV5-am-Umn">
+                                <dateLabel width="136" height="37.5" alignment="left" id="WV5-am-Umn">
                                     <dateFormatterStyle key="dateStyle" short="YES"/>
                                     <dateFormatterStyle key="timeStyle" short="YES"/>
                                 </dateLabel>
@@ -65,8 +71,10 @@
                             <items>
                                 <group width="1" alignment="left" id="gcj-l1-Efc">
                                     <items>
-                                        <label width="1" alignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" id="zI8-oG-VNj">
-                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                        <label width="1" height="58" alignment="center" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="zI8-oG-VNj">
+                                            <string key="text">Label 
+12345</string>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                                         </label>
                                     </items>
                                 </group>
