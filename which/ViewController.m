@@ -8,15 +8,27 @@
 
 #import "ViewController.h"
 
+#import "DataRetriever.h"
+
 @interface ViewController ()
+
+@property (retain, nonatomic) DataRetriever *retriever;
 
 @end
 
 @implementation ViewController
 
+- (DataRetriever*)retriever {
+    if (!_retriever) {
+        _retriever = [[DataRetriever alloc] init];
+    }
+    return _retriever;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self.retriever updateData];
 }
 
 - (void)didReceiveMemoryWarning {
