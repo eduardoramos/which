@@ -32,6 +32,8 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Access to retrieve events from the GSA Payroll calendar</string>
 	<key>WKExtensionDelegateClassName</key>
 	<string>ExtensionDelegate</string>
 </dict>
