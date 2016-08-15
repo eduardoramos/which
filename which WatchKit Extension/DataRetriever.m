@@ -63,8 +63,11 @@ static DataRetriever* _sharedDataRetriever = nil;
     myString = [NSString stringWithFormat:@"%@",myString];
     
     [self setCardText:myString];
+
+    [self.store reset];
     
     EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+
     switch (authorizationStatus) {
         case EKAuthorizationStatusDenied:
         case EKAuthorizationStatusRestricted:
@@ -82,6 +85,9 @@ static DataRetriever* _sharedDataRetriever = nil;
                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                weakSelf.isAccessToEventStoreGranted = granted;
                                                NSLog(@"Granted  = %d",weakSelf.isAccessToEventStoreGranted);
+                                               if (granted==NO){
+                                                   NSLog(@"%@",error);
+                                               }
                                            });
                                        }];
             break;
@@ -99,9 +105,10 @@ static DataRetriever* _sharedDataRetriever = nil;
     
     // Fetch all events that match the predicate
     NSArray *events = [self.store eventsMatchingPredicate:predicate];
-    NSLog(@"Retrieved %d events from: %@ to %@",events.count,fourteenDaysAgo, today);
-    [self setDateText:@"Date..."];
-    [self setPayperiodText:@"Pay Period..."];
+    NSLog(@"Retrieved %lu events from: %@ to %@",(unsigned long)events.count,fourteenDaysAgo, today);
+    [self setPayperiodText:@"Grant access\nto calendars"];
+    [self setDateText:@"In the iOS Privacy Settings"];
+
     for (EKEvent*event in events) {
         NSLog(@"Event %@",event.title);
         if ([event.title containsString:@"PP#"]) {
@@ -122,11 +129,11 @@ static DataRetriever* _sharedDataRetriever = nil;
             NSDateFormatter* day = [[NSDateFormatter alloc] init];
             [day setDateFormat: @"EEEE"];
             NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
-            [self setDateText:[NSString stringWithFormat:@"%@ Week %d",
+            [self setDateText:[NSString stringWithFormat:@"%@ Week %ld",
                               [day stringFromDate:[NSDate date]],
-                              week]];
+                              (long)week]];
             
-            NSLog(@"The difference is %i",components.day);
+            NSLog(@"The difference is %li",(long)components.day);
         }
         
     }
