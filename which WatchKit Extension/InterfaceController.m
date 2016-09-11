@@ -29,6 +29,7 @@
 }
 
 - (void)awakeWithContext:(id)context {
+    NSLog(@"awakeWithContext");
     [super awakeWithContext:context];
 
     // Configure interface objects here.
@@ -36,7 +37,6 @@
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
-    
     [self.retriever updateData];
     
     [self.cardGroup setBackgroundColor:self.retriever.backgroundColor];
@@ -46,6 +46,7 @@
     [self.payperiodLabel setText:self.retriever.payperiodText];
     [self.dateLabel setText:self.retriever.dateText];
 
+    NSLog(@"will Activate");
     [super willActivate];
 }
 
