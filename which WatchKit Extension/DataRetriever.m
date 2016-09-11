@@ -34,6 +34,7 @@ static DataRetriever* _sharedDataRetriever = nil;
 }
 
 - (void)updateData {
+    NSLog(@"updateData called");
     // This method is called when watch view controller is about to be visible to user
     
     NSCalendar *cal = [NSCalendar currentCalendar];
