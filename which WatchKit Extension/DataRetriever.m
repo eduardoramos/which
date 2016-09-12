@@ -33,6 +33,54 @@ static DataRetriever* _sharedDataRetriever = nil;
     return _store;
 }
 
+-(void) accessToCalendarGrantedWithCalendar:(NSCalendar*)cal {
+    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    // Create the start date component
+    NSDateComponents *fourteenDaysFromTodayComponents = [[NSDateComponents alloc]init];
+    fourteenDaysFromTodayComponents.day = 14;
+    NSDate *fourteenDaysFromToday = [cal dateByAddingComponents:fourteenDaysFromTodayComponents
+                                                   toDate:[NSDate date]
+                                                  options:0];
+    
+    //Create the end date component
+    NSPredicate *predicate = [self.store predicateForEventsWithStartDate:today endDate:fourteenDaysFromToday calendars:nil];
+    
+    // Fetch all events that match the predicate
+    NSArray *events = [self.store eventsMatchingPredicate:predicate];
+    NSLog(@"Retrieved %lu events from: %@ to %@",(unsigned long)events.count,fourteenDaysFromToday, today);
+    [self setPayperiodText:@"Grant access\nto calendars"];
+    [self setDateText:@"In the iOS Privacy Settings"];
+    
+    for (EKEvent*event in events) {
+        NSLog(@"Event %@",event.title);
+        if ([event.title containsString:@"PP#"]) {
+            NSLog(@"Found %@",event.title);
+            [self setPayperiodText:event.title];
+            NSUInteger unitFlags = NSCalendarUnitDay;
+            NSCalendar *gregorian = [[NSCalendar alloc]
+                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDateComponents *components = [gregorian components:unitFlags
+                                                        fromDate:today
+                                                          toDate:event.startDate options:0];
+            NSInteger week;
+            if (components.day<7)
+                week=2;
+            else
+                week=1;
+            
+            NSDateFormatter* day = [[NSDateFormatter alloc] init];
+            [day setDateFormat: @"EEEE"];
+            NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
+            [self setDateText:[NSString stringWithFormat:@"%@ Week %ld",
+                               [day stringFromDate:[NSDate date]],
+                               (long)week]];
+            
+            NSLog(@"The difference is %li",(long)components.day);
+            
+        }
+    }
+}
+
 - (void)updateData {
     NSLog(@"updateData called");
     // This method is called when watch view controller is about to be visible to user
@@ -88,55 +136,14 @@ static DataRetriever* _sharedDataRetriever = nil;
                                                NSLog(@"Granted  = %d",weakSelf.isAccessToEventStoreGranted);
                                                if (granted==NO){
                                                    NSLog(@"%@",error);
+                                               } else
+                                               {
+                                                   [self accessToCalendarGrantedWithCalendar:cal];
                                                }
                                            });
-                                       }];
-            break;
-    }
-    
-    // Create the start date component
-    NSDateComponents *fourteenDaysAgoComponents = [[NSDateComponents alloc]init];
-    fourteenDaysAgoComponents.day = -14;
-    NSDate *fourteenDaysAgo = [cal dateByAddingComponents:fourteenDaysAgoComponents
-                                                   toDate:[NSDate date]
-                                                  options:0];
-    
-    //Create the end date component
-    NSPredicate *predicate = [self.store predicateForEventsWithStartDate:fourteenDaysAgo endDate:today calendars:nil];
-    
-    // Fetch all events that match the predicate
-    NSArray *events = [self.store eventsMatchingPredicate:predicate];
-    NSLog(@"Retrieved %lu events from: %@ to %@",(unsigned long)events.count,fourteenDaysAgo, today);
-    [self setPayperiodText:@"Grant access\nto calendars"];
-    [self setDateText:@"In the iOS Privacy Settings"];
 
-    for (EKEvent*event in events) {
-        NSLog(@"Event %@",event.title);
-        if ([event.title containsString:@"PP#"]) {
-            NSLog(@"Found %@",event.title);
-            [self setPayperiodText:event.title];
-            NSUInteger unitFlags = NSCalendarUnitDay;
-            NSCalendar *gregorian = [[NSCalendar alloc]
-                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *components = [gregorian components:unitFlags
-                                                        fromDate:event.startDate
-                                                          toDate:today options:0];
-            NSInteger week;
-            if (components.day>7)
-                week=2;
-            else
-                week=1;
-            
-            NSDateFormatter* day = [[NSDateFormatter alloc] init];
-            [day setDateFormat: @"EEEE"];
-            NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
-            [self setDateText:[NSString stringWithFormat:@"%@ Week %ld",
-                              [day stringFromDate:[NSDate date]],
-                              (long)week]];
-            
-            NSLog(@"The difference is %li",(long)components.day);
-        }
-        
+                                       }];
     }
 }
+
 @end
