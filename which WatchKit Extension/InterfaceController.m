@@ -33,21 +33,24 @@
     [super awakeWithContext:context];
 
     // Configure interface objects here.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDisplay) name:
+     @"EventsUpdated" object:nil];
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [self.retriever updateData];
     
+    [super willActivate];
+}
+
+- (void)updateDisplay{
     [self.cardGroup setBackgroundColor:self.retriever.backgroundColor];
     [self.cardLabel setTextColor:self.retriever.textColor];
     [self.cardLabel setText:self.retriever.cardText];
-
+    
     [self.payperiodLabel setText:self.retriever.payperiodText];
     [self.dateLabel setText:self.retriever.dateText];
-
-    NSLog(@"will Activate");
-    [super willActivate];
 }
 
 - (void)didDeactivate {
