@@ -47,9 +47,7 @@ static DataRetriever* _sharedDataRetriever = nil;
     
     // Fetch all events that match the predicate
     NSArray *events = [self.store eventsMatchingPredicate:predicate];
-    NSLog(@"Retrieved %lu events from: %@ to %@",(unsigned long)events.count,fourteenDaysFromToday, today);
-    [self setPayperiodText:@"Grant access\nto calendars"];
-    [self setDateText:@"In the iOS Privacy Settings"];
+    NSLog(@"Retrieved %lu events: %@ to %@",(unsigned long)events.count,fourteenDaysFromToday, today);
     
     for (EKEvent*event in events) {
         NSLog(@"Event %@",event.title);
@@ -79,6 +77,7 @@ static DataRetriever* _sharedDataRetriever = nil;
             
         }
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EventsUpdated" object:self];
 }
 
 - (void)updateData {
@@ -115,6 +114,12 @@ static DataRetriever* _sharedDataRetriever = nil;
 
     [self.store reset];
     
+    if (!self.isAccessToEventStoreGranted)
+    {
+        [self setPayperiodText:@"GSA Calendar"];
+        [self setDateText:@"Retrieving Events..."];
+    }
+    
     EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
 
     switch (authorizationStatus) {
@@ -136,6 +141,8 @@ static DataRetriever* _sharedDataRetriever = nil;
                                                NSLog(@"Granted  = %d",weakSelf.isAccessToEventStoreGranted);
                                                if (granted==NO){
                                                    NSLog(@"%@",error);
+                                                   [self setPayperiodText:@"Grant access\nto calendars"];
+                                                   [self setDateText:@"In the iOS Privacy Settings"];
                                                } else
                                                {
                                                    [self accessToCalendarGrantedWithCalendar:cal];
