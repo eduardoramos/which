@@ -19,7 +19,6 @@
 		E4671BEA1CFBF8BA003267B0 /* which WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E4671BE91CFBF8BA003267B0 /* which WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E4671BF01CFBF8BA003267B0 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BEF1CFBF8BA003267B0 /* InterfaceController.m */; };
 		E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BF21CFBF8BA003267B0 /* ExtensionDelegate.m */; };
-		E4671BF61CFBF8BA003267B0 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BF51CFBF8BA003267B0 /* GlanceController.m */; };
 		E4671BF81CFBF8BA003267B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4671BF71CFBF8BA003267B0 /* Assets.xcassets */; };
 		E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3D7ED1D1EFB940081945F /* DataRetriever.m */; };
 		E4ED707A1D6173A400385C81 /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3D7ED1D1EFB940081945F /* DataRetriever.m */; };
@@ -87,8 +86,6 @@
 		E4671BEF1CFBF8BA003267B0 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		E4671BF11CFBF8BA003267B0 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		E4671BF21CFBF8BA003267B0 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		E4671BF41CFBF8BA003267B0 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
-		E4671BF51CFBF8BA003267B0 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		E4671BF71CFBF8BA003267B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4671BF91CFBF8BA003267B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4B3D7ED1D1EFB940081945F /* DataRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataRetriever.m; sourceTree = "<group>"; };
@@ -174,8 +171,6 @@
 				E4671BEF1CFBF8BA003267B0 /* InterfaceController.m */,
 				E4671BF11CFBF8BA003267B0 /* ExtensionDelegate.h */,
 				E4671BF21CFBF8BA003267B0 /* ExtensionDelegate.m */,
-				E4671BF41CFBF8BA003267B0 /* GlanceController.h */,
-				E4671BF51CFBF8BA003267B0 /* GlanceController.m */,
 				E4671BF71CFBF8BA003267B0 /* Assets.xcassets */,
 				E4671BF91CFBF8BA003267B0 /* Info.plist */,
 				E4B3D7EF1D1EFCC60081945F /* DataRetriever.h */,
@@ -332,7 +327,6 @@
 				E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */,
 				E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */,
 				E4671BF01CFBF8BA003267B0 /* InterfaceController.m in Sources */,
-				E4671BF61CFBF8BA003267B0 /* GlanceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
