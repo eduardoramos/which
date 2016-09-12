@@ -25,6 +25,7 @@
 
 +(DataRetriever*)sharedDataRetrieverSingleton;
 
+-(void) accessToCalendarGrantedWithCalendar:(NSCalendar*)cal;
 
 @end
 
