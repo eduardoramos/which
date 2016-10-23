@@ -23,7 +23,7 @@
 
 - (DataRetriever*)retriever {
     if (!_retriever) {
-        _retriever = [[DataRetriever alloc] init];
+        _retriever = [DataRetriever sharedDataRetrieverSingleton];
     }
     return _retriever;
 }

@@ -20,6 +20,9 @@
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (strong, nonatomic) NSString *payperiodText;
 @property (strong, nonatomic) NSString *dateText;
+@property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString *shortText;
+
 
 - (void)updateData;
 

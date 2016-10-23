@@ -86,15 +86,17 @@ static DataRetriever* _sharedDataRetriever = nil;
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     
-    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:0];
     
-    NSDateComponents *components = [cal components:NSCalendarUnitDay fromDate:today];
+    NSDateComponents *components = [cal components:NSCalendarUnitDay fromDate:currentDate];
     NSInteger day = [components day];
     
     NSString * myString;
     
     if ((day>10) && (day<=26))
     {
+        self.text = @"Gold Card";
+        self.shortText = @"Gold";
         myString = @"Gold\n(11-26th)";
         [self setBackgroundColor:[UIColor yellowColor]];
         [self setTextColor:[UIColor blackColor]];
@@ -102,6 +104,9 @@ static DataRetriever* _sharedDataRetriever = nil;
     }
     else
     {
+        self.text = @"Blue Card";
+        self.shortText = @"Blue";
+        
         myString = @"Blue\n(27-10th)";
         [self setBackgroundColor:[UIColor blueColor]];
         [self setTextColor:[UIColor whiteColor]];

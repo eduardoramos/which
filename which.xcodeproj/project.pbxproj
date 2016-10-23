@@ -21,6 +21,7 @@
 		E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4671BF21CFBF8BA003267B0 /* ExtensionDelegate.m */; };
 		E4671BF81CFBF8BA003267B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4671BF71CFBF8BA003267B0 /* Assets.xcassets */; };
 		E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3D7ED1D1EFB940081945F /* DataRetriever.m */; };
+		E4CAAD7C1DB08515001EEF8B /* ComplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CAAD7B1DB08515001EEF8B /* ComplicationController.m */; };
 		E4ED707A1D6173A400385C81 /* DataRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B3D7ED1D1EFB940081945F /* DataRetriever.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		E4671BF91CFBF8BA003267B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4B3D7ED1D1EFB940081945F /* DataRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataRetriever.m; sourceTree = "<group>"; };
 		E4B3D7EF1D1EFCC60081945F /* DataRetriever.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataRetriever.h; sourceTree = "<group>"; };
+		E4CAAD7A1DB08515001EEF8B /* ComplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplicationController.h; sourceTree = "<group>"; };
+		E4CAAD7B1DB08515001EEF8B /* ComplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplicationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 		E4671BED1CFBF8BA003267B0 /* which WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E4CAAD7A1DB08515001EEF8B /* ComplicationController.h */,
+				E4CAAD7B1DB08515001EEF8B /* ComplicationController.m */,
 				E4671BEE1CFBF8BA003267B0 /* InterfaceController.h */,
 				E4671BEF1CFBF8BA003267B0 /* InterfaceController.m */,
 				E4671BF11CFBF8BA003267B0 /* ExtensionDelegate.h */,
@@ -251,6 +256,11 @@
 					E4671BD91CFBF8BA003267B0 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = T9V62Y8U4T;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.app = {
+								enabled = 0;
+							};
+						};
 					};
 					E4671BE81CFBF8BA003267B0 = {
 						CreatedOnToolsVersion = 7.3;
@@ -325,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B3D7EE1D1EFB940081945F /* DataRetriever.m in Sources */,
+				E4CAAD7C1DB08515001EEF8B /* ComplicationController.m in Sources */,
 				E4671BF31CFBF8BA003267B0 /* ExtensionDelegate.m in Sources */,
 				E4671BF01CFBF8BA003267B0 /* InterfaceController.m in Sources */,
 			);
