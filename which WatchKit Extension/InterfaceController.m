@@ -12,8 +12,6 @@
 @interface InterfaceController()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *cardGroup;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *cardLabel;
-@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *payperiodLabel;
-@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *dateLabel;
 
 @property (retain, nonatomic) DataRetriever *retriever;
 @end
@@ -49,8 +47,6 @@
     [self.cardLabel setTextColor:self.retriever.textColor];
     [self.cardLabel setText:self.retriever.cardText];
     
-    [self.payperiodLabel setText:self.retriever.payperiodText];
-    [self.dateLabel setText:self.retriever.dateText];
 }
 
 - (void)didDeactivate {
