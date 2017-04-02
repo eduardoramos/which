@@ -34,49 +34,7 @@ static DataRetriever* _sharedDataRetriever = nil;
 }
 
 -(void) accessToCalendarGrantedWithCalendar:(NSCalendar*)cal {
-    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
-    // Create the start date component
-    NSDateComponents *fourteenDaysFromTodayComponents = [[NSDateComponents alloc]init];
-    fourteenDaysFromTodayComponents.day = 14;
-    NSDate *fourteenDaysFromToday = [cal dateByAddingComponents:fourteenDaysFromTodayComponents
-                                                   toDate:[NSDate date]
-                                                  options:0];
-    
-    //Create the end date component
-    NSPredicate *predicate = [self.store predicateForEventsWithStartDate:today endDate:fourteenDaysFromToday calendars:nil];
-    
-    // Fetch all events that match the predicate
-    NSArray *events = [self.store eventsMatchingPredicate:predicate];
-    NSLog(@"Retrieved %lu events: %@ to %@",(unsigned long)events.count,fourteenDaysFromToday, today);
-    
-    for (EKEvent*event in events) {
-        NSLog(@"Event %@",event.title);
-        if ([event.title containsString:@"PP#"]) {
-            NSLog(@"Found %@",event.title);
-            [self setPayperiodText:event.title];
-            NSUInteger unitFlags = NSCalendarUnitDay;
-            NSCalendar *gregorian = [[NSCalendar alloc]
-                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *components = [gregorian components:unitFlags
-                                                        fromDate:today
-                                                          toDate:event.startDate options:0];
-            NSInteger week;
-            if (components.day<7)
-                week=2;
-            else
-                week=1;
-            
-            NSDateFormatter* day = [[NSDateFormatter alloc] init];
-            [day setDateFormat: @"EEEE"];
-            NSLog(@"the day is: %@", [day stringFromDate:[NSDate date]]);
-            [self setDateText:[NSString stringWithFormat:@"%@ Week %ld",
-                               [day stringFromDate:[NSDate date]],
-                               (long)week]];
-            
-            NSLog(@"The difference is %li",(long)components.day);
-            
-        }
-    }
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EventsUpdated" object:self];
 }
 
@@ -119,43 +77,9 @@ static DataRetriever* _sharedDataRetriever = nil;
 
     [self.store reset];
     
-    if (!self.isAccessToEventStoreGranted)
-    {
-        [self setPayperiodText:@"GSA Calendar"];
-        [self setDateText:@"Retrieving Events..."];
-    }
+    [self accessToCalendarGrantedWithCalendar:cal];
+    return;
     
-    EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
-
-    switch (authorizationStatus) {
-        case EKAuthorizationStatusDenied:
-        case EKAuthorizationStatusRestricted:
-            self.isAccessToEventStoreGranted=NO;
-            NSLog(@"Not authorized");
-        case EKAuthorizationStatusAuthorized:
-            self.isAccessToEventStoreGranted=YES;
-            
-            NSLog(@"Authorized!");
-        case EKAuthorizationStatusNotDetermined:
-            NSLog(@"Not determined");
-            __weak DataRetriever *weakSelf = self;
-            [self.store requestAccessToEntityType:EKEntityTypeEvent
-                                       completion:^(BOOL granted, NSError *error) {
-                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                               weakSelf.isAccessToEventStoreGranted = granted;
-                                               NSLog(@"Granted  = %d",weakSelf.isAccessToEventStoreGranted);
-                                               if (granted==NO){
-                                                   NSLog(@"%@",error);
-                                                   [self setPayperiodText:@"Grant access\nto calendars"];
-                                                   [self setDateText:@"In the iOS Privacy Settings"];
-                                               } else
-                                               {
-                                                   [self accessToCalendarGrantedWithCalendar:cal];
-                                               }
-                                           });
-
-                                       }];
-    }
 }
 
 @end
