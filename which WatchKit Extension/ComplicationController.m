@@ -97,4 +97,11 @@
     }
 }
 
+- (void)refreshComplications {
+    CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
+    for(CLKComplication *complication in server.activeComplications) {
+        [server reloadTimelineForComplication:complication];
+    }
+}
+
 @end
