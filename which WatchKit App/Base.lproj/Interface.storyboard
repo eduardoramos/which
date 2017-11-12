@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -13,7 +13,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <group width="1" alignment="left" id="U2p-Um-5Rc">
+                        <group width="1" height="25" alignment="left" id="U2p-Um-5Rc">
                             <items>
                                 <dateLabel width="136" height="43.5" alignment="left" id="6DQ-o7-OsW">
                                     <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -22,13 +22,13 @@
                                 </dateLabel>
                             </items>
                         </group>
-                        <group width="1" height="59" alignment="left" id="hQf-oZ-ioN">
+                        <group width="1" height="86" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" layout="vertical" id="a1h-8H-cve"/>
+                        <imageView alignment="left" image="Blue" id="iLe-vZ-0Kd"/>
+                        <group width="1" height="25" alignment="left" id="hQf-oZ-ioN">
                             <items>
-                                <group width="1" alignment="left" id="2rr-Vb-a4C" userLabel="Card Group">
+                                <group width="136" height="98" alignment="left" id="2rr-Vb-a4C" userLabel="Card Group">
                                     <items>
-                                        <label width="1" alignment="center" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="QVU-nx-Lpx" userLabel="Card Label">
-                                            <string key="text">Label 
-12345678</string>
+                                        <label alignment="center" text="Label" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="QVU-nx-Lpx" userLabel="Card Label">
                                             <color key="textColor" red="1" green="0.1960784314" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                                         </label>
@@ -36,10 +36,10 @@
                                 </group>
                             </items>
                         </group>
-                        <group width="1" height="66" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" layout="vertical" id="a1h-8H-cve"/>
                     </items>
                     <connections>
                         <outlet property="cardGroup" destination="2rr-Vb-a4C" id="lwL-Vc-eok"/>
+                        <outlet property="cardImage" destination="iLe-vZ-0Kd" id="LT0-RX-eAM"/>
                         <outlet property="cardLabel" destination="QVU-nx-Lpx" id="U7X-5u-A3L"/>
                     </connections>
                 </controller>

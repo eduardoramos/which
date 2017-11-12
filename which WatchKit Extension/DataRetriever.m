@@ -51,24 +51,22 @@ static DataRetriever* _sharedDataRetriever = nil;
     
     NSString * myString;
     
+    [self setBackgroundColor:[UIColor blackColor]];
+    [self setTextColor:[UIColor whiteColor]];
+
     if ((day>10) && (day<=26))
     {
         self.text = @"Gold Card";
         self.shortText = @"Gold";
-        myString = @"Gold\n(11-26th)";
-        [self setBackgroundColor:[UIColor yellowColor]];
-        [self setTextColor:[UIColor blackColor]];
-        
+        myString = @"(11-26th)";
+        [self setImageName:@"Gold.png"];
     }
     else
     {
         self.text = @"Blue Card";
         self.shortText = @"Blue";
-        
-        myString = @"Blue\n(27-10th)";
-        [self setBackgroundColor:[UIColor blueColor]];
-        [self setTextColor:[UIColor whiteColor]];
-        
+        myString = @"(27-10th)";
+        [self setImageName:@"Gold.png"];
     }
     
     myString = [NSString stringWithFormat:@"%@",myString];

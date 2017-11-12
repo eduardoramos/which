@@ -12,6 +12,7 @@
 @interface InterfaceController()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceGroup *cardGroup;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *cardLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceImage *cardImage;
 
 @property (retain, nonatomic) DataRetriever *retriever;
 @end
@@ -46,7 +47,7 @@
     [self.cardGroup setBackgroundColor:self.retriever.backgroundColor];
     [self.cardLabel setTextColor:self.retriever.textColor];
     [self.cardLabel setText:self.retriever.cardText];
-    
+    [self.cardImage setImageNamed:self.retriever.imageName];
 }
 
 - (void)didDeactivate {

@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIColor *backgroundColor;
 @property (strong, nonatomic) UIColor *textColor;
 @property (strong, nonatomic) NSString *cardText;
+@property (strong, nonatomic) NSString *imageName;
 @property (nonatomic) BOOL isAccessToEventStoreGranted;
 @property (strong, nonatomic) NSString *payperiodText;
 @property (strong, nonatomic) NSString *dateText;
