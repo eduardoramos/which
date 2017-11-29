@@ -66,7 +66,7 @@ static DataRetriever* _sharedDataRetriever = nil;
         self.text = @"Blue Card";
         self.shortText = @"Blue";
         myString = @"(27-10th)";
-        [self setImageName:@"Gold.png"];
+        [self setImageName:@"Blue.png"];
     }
     
     myString = [NSString stringWithFormat:@"%@",myString];
